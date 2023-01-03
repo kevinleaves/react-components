@@ -23,14 +23,18 @@ function GroceryList ({items, handleClick}) {
 
 const GroceryListItem = ({listItem}) => {
 
-  const [isPurchased, setPurchased] = useState(false);
+  const [isHovered, setHovered] = useState(false);
 
   const style = {
-    textDecoration: isPurchased ? 'line-through' : 'none'
+    fontWeight: isHovered ? 'bold' : 'normal'
   }
 
   return (
-    <li style={style} onClick={() => {setPurchased(!isPurchased)}}>{listItem}</li>
+    <li style={style}
+    onMouseEnter={() => {setHovered(true)}}
+    onMouseLeave={() => {setHovered(false)}}>
+    {listItem}
+    </li>
   )
 }
 
